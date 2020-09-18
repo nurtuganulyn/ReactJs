@@ -3,8 +3,8 @@ import React from 'react';
 class Tab extends React.Component {
     state = {
       rows: [
-             {name : "Nursultan", phone: "87761694143", address: "Kyzylorda"},
-             {name : "Nurasyl", phone: "87761053443", address: "Kyzylorda"} 
+             {name : "Nursultan", phone: "87761694143", address: "Kyzylorda", age: 21},
+             {name : "Nurasyl", phone: "87761053443", address: "Kyzylorda", age: 20} 
             ]
     };
     handleChange = idx => e => {
@@ -21,7 +21,8 @@ class Tab extends React.Component {
       const item = {
         name: "",
         phone: "",
-        address: ""
+        address: "",
+        age: ""
       };
       this.setState({
         rows: [...this.state.rows, item]
@@ -44,10 +45,12 @@ class Tab extends React.Component {
                 >
                   <thead>
                     <tr>
-                      <th className="text-center"> No </th>
+                      <th className="text-center"> Id </th>
                       <th className="text-center"> Name </th>
                       <th className="text-center"> Phone </th>
                       <th className="text-center"> Address </th>
+                      <th className="text-center"> Age </th>
+
 
                     </tr>
                   </thead>
@@ -78,6 +81,15 @@ class Tab extends React.Component {
                             type="text"
                             name="adress"
                             value={this.state.rows[idx].address}
+                            onChange={this.handleChange(idx)}
+                            className="form-control"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            name="age"
+                            value={this.state.rows[idx].age}
                             onChange={this.handleChange(idx)}
                             className="form-control"
                           />
